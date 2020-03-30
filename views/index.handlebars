@@ -1,0 +1,103 @@
+{{!-- - Add burger.png and style 
+      - Add good readme
+      - Add to portfolio   --}}
+
+<div class = "topHeader">
+<h1>Eat-Da-Burger!</h1>
+
+<img class = "burgerImg" src = "./assets/img/burger.png" alt = "hamburger pic">
+</div>
+
+{{!-- <div class="burgerDiv"> --}}
+  <div class="uneatenDiv">
+    <h3>Prepared Burgers:</h3>
+    {{#each burgers}}
+      {{#unless devoured}}
+        <div class = "inline"><p class="uneaten">{{id}}. {{burger_name}}</p><button class = "devourIt inline" data-burgerid = "{{this.id}}">Devour It!</button></div><br>
+       {{/unless}}
+    {{/each}}
+    
+  </div>
+
+  <div class="eatenDiv">
+    <h3>Burgers you've already eaten:</h3>
+    {{#each burgers}}
+      {{#if devoured}}
+        <p class="eaten">{{id}}. {{burger_name}}<button class = "delete inline" data-burgerid = "{{this.id}}" >X</button></p>
+      {{/if}}
+    {{/each}}
+  </div>
+{{!-- </div> --}}
+
+
+
+<form id="addBurger" class="button-size">
+  <h3>Burger Maker:</h3>
+  <textarea type="text" name="burger"></textarea>
+  <button type="submit" id = "submitButton">Submit</button>
+  <p>Enter a burger you want to eat and click the "Submit" Button</p>
+</form>
+
+
+
+<script type="text/javascript">
+
+  $("#addBurger").on("submit", event => {
+    event.preventDefault();
+
+   var newBurger = {
+      burger_name: $("#addBurger [name=burger]").val().trim(),
+      devoured: 0
+    };
+    console.log(newBurger);
+
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      () => {
+        console.log("added new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  //Devour burger
+  $(".devourIt").on("click", function() {
+  var id = $(this).data("burgerid");
+  console.log(id +"id");
+
+   var updatedBurger = {
+      devoured: 1
+    };
+
+    $.ajax(`/api/burgers/${id}`, {
+      type: "PUT",
+      data: updatedBurger
+    })
+    .then(() => {
+        console.log("updated burger");
+        // Reload the page to get the updated list
+        location.reload();
+      });
+  });
+
+  //delete burger
+  $(".delete").on("click", function() {
+  var id = $(this).data("burgerid");
+  console.log(id +"id");
+
+  $.ajax(`/api/burgers/${id}`, {
+      type: "DELETE",
+  
+    })
+    .then(() => {
+        console.log("deleted burger");
+        // Reload the page to get the updated list
+        location.reload();
+      });
+  });
+
+</script>

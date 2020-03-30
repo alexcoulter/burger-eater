@@ -1,0 +1,123 @@
+body {
+  background-image: url("../img/food.png");
+  padding: 5%;
+}
+
+p {
+  margin: 0;
+  padding:0;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: bolder;
+  color:orange;
+  text-shadow: 2px 2px black;
+}
+
+.topHeader {
+  margin:0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.burgerImg {
+  width: 300px;
+  padding-bottom: 40px;
+}
+
+#addBurger {
+  margin:0 auto;
+  clear: both;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.burgerDiv {
+  width: 100%;
+  border: 1px solid red;
+}
+.uneatenDiv {
+  margin:0;
+  padding:0;
+  width: 450px;
+  float:left;
+}
+
+.eatenDiv {
+  margin:0;
+  padding:0;
+  width:300px;
+  float:right;
+}
+
+.uneaten {
+  border: 1px solid grey;
+  margin-bottom:10px;
+  padding:10px 5px;
+  background-color: white;
+  text-align: center;
+  width:300px;
+  display: inline-block;
+}
+
+.devourIt {
+  margin-left: 30px;
+  display: inline-block;
+  color: black;
+  background-color: orange;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+.eaten {
+  background-color: white;
+  color:grey;
+  border: 1px solid grey;
+  margin:0;
+  padding: 5px 5px;
+  text-align: left;
+}
+
+.inline {
+  display: inline;
+}
+
+textarea {
+  width: 400px;
+}
+#submitButton {
+  display:block;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  background-color: blueviolet;
+  padding: 3px 15px;
+  border-radius: 5px;
+}
+
+.delete {
+  float:right;
+  color: red;
+}
+
+@media only screen and (max-width: 868px) {
+  .uneatenDiv {
+    float: none;
+    margin:0 auto;
+  }
+
+  .eatenDiv {
+    float: none;
+    margin:0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+  }
+
+  h3 {
+    text-align: center;
+  }
+}
+
