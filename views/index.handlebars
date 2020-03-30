@@ -1,5 +1,4 @@
-{{!-- - Add burger.png and style 
-      - Add good readme
+{{!--  - Add good readme
       - Add to portfolio   --}}
 
 <div class = "topHeader">
@@ -8,7 +7,6 @@
 <img class = "burgerImg" src = "./assets/img/burger.png" alt = "hamburger pic">
 </div>
 
-{{!-- <div class="burgerDiv"> --}}
   <div class="uneatenDiv">
     <h3>Prepared Burgers:</h3>
     {{#each burgers}}
@@ -27,9 +25,6 @@
       {{/if}}
     {{/each}}
   </div>
-{{!-- </div> --}}
-
-
 
 <form id="addBurger" class="button-size">
   <h3>Burger Maker:</h3>
@@ -37,7 +32,6 @@
   <button type="submit" id = "submitButton">Submit</button>
   <p>Enter a burger you want to eat and click the "Submit" Button</p>
 </form>
-
 
 
 <script type="text/javascript">
@@ -49,7 +43,6 @@
       burger_name: $("#addBurger [name=burger]").val().trim(),
       devoured: 0
     };
-    console.log(newBurger);
 
     // Send the POST request.
     $.ajax("/api/burgers", {
@@ -57,8 +50,6 @@
       data: newBurger
     }).then(
       () => {
-        console.log("added new burger");
-        // Reload the page to get the updated list
         location.reload();
       }
     );
@@ -67,7 +58,6 @@
   //Devour burger
   $(".devourIt").on("click", function() {
   var id = $(this).data("burgerid");
-  console.log(id +"id");
 
    var updatedBurger = {
       devoured: 1
@@ -78,8 +68,6 @@
       data: updatedBurger
     })
     .then(() => {
-        console.log("updated burger");
-        // Reload the page to get the updated list
         location.reload();
       });
   });
@@ -87,15 +75,12 @@
   //delete burger
   $(".delete").on("click", function() {
   var id = $(this).data("burgerid");
-  console.log(id +"id");
 
   $.ajax(`/api/burgers/${id}`, {
       type: "DELETE",
   
     })
     .then(() => {
-        console.log("deleted burger");
-        // Reload the page to get the updated list
         location.reload();
       });
   });
