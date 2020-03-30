@@ -2,8 +2,9 @@
 
  ![license type](https://img.shields.io/badge/License-MIT-yellow) &nbsp;&nbsp;&nbsp; 	
  ![version #](https://img.shields.io/badge/Version-1.0-blue) &nbsp;&nbsp;&nbsp; 	 
- ![Node.js](https://img.shields.io/badge/Built_with-Node.js-green) &nbsp;&nbsp;&nbsp; 	 
+ ![Node.js](https://img.shields.io/badge/Built_with-Node.js-purple) &nbsp;&nbsp;&nbsp; 	 
  ![Mysql](https://img.shields.io/badge/Database-Mysql-orange) 
+ ![Express](https://img.shields.io/badge/Framework-Express-green) 
 
 ## Table of Contents  
 
@@ -41,10 +42,10 @@
  
 ## Built With  
 
-* Node.js
-* Express
-* Handlebars - Generates HTML
+* Node.js -  JavaScript environment that executes JS code without needing a web browser.
+* Express - Web application framework that helped with routes and requests.
+* Express-Handlebars - View engine for express that helps generates HTML
 * Mysql - Open Source Database Management System
-* ORM
-* MVC Design
+* ORM - 'Object Relational Mapping' was used so that we didn't need to make sql queries
+* MVC Design - Model View Control architecture seperates the files in the app into these 3 areas for better organization of code
 
