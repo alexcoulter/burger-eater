@@ -1,6 +1,6 @@
 body {
   background-image: url("../img/food.png");
-  padding: 5%;
+  padding: 0% 3% 3% 3%;
 }
 
 p {
@@ -23,7 +23,7 @@ h1 {
 
 .burgerImg {
   width: 300px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 #addBurger {
@@ -31,25 +31,30 @@ h1 {
   clear: both;
   width: 100%;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .burgerDiv {
   width: 100%;
   border: 1px solid red;
 }
+
+.uneatenWrapper {
+  text-align: center;
+}
 .uneatenDiv {
-  margin:0;
+  margin:0 auto;
   padding:0;
-  width: 450px;
   float:left;
+  width: 50%; 
 }
 
 .eatenDiv {
-  margin:0;
+  margin:0 auto;
   padding:0;
-  width:300px;
   float:right;
+  width: 40%;
+  margin: 0% 5%;
 }
 
 .uneaten {
@@ -58,7 +63,7 @@ h1 {
   padding:10px 5px;
   background-color: white;
   text-align: center;
-  width:300px;
+  width:250px;
   display: inline-block;
 }
 
@@ -103,9 +108,19 @@ textarea {
 }
 
 @media only screen and (max-width: 868px) {
+  
+  body {
+    margin:0;
+    padding: 0;
+    width: 100vw;
+    margin: 0 1vw 0 1vw;
+    position:fixed;
+  }
+  
   .uneatenDiv {
     float: none;
     margin:0 auto;
+    width: 100%;
   }
 
   .eatenDiv {
@@ -113,11 +128,16 @@ textarea {
     margin:0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
-
+    width: 60%;
+    min-width: 300px;
   }
 
   h3 {
     text-align: center;
+  }
+
+  .devourIt {
+    margin-bottom: 10px;
   }
 }
 
