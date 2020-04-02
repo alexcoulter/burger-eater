@@ -1,29 +1,31 @@
+<div class="topHeader">
+  <h1>Eat-Da-Burger!</h1>
 
-<div class = "topHeader">
-<h1>Eat-Da-Burger!</h1>
-
-<img class = "burgerImg" src = "./assets/img/burger.png" alt = "hamburger pic">
+  <img class="burgerImg" src="./assets/img/burger.png" alt="hamburger pic">
 </div>
 
-<div class = "uneatenWrapper">
+<div class="uneatenWrapper">
   <div class="uneatenDiv">
     <h3>Prepared Burgers:</h3>
     {{#each burgers}}
-      {{#unless devoured}}
-        <div class = "inline"><p class="uneaten">{{id}}. {{burger_name}}</p><button class = "devourIt inline" data-burgerid = "{{this.id}}">Devour It!</button></div><br>
-       {{/unless}}
+    {{#unless devoured}}
+    <div class="inline">
+      <p class="uneaten">{{id}}. {{burger_name}}</p><button class="devourIt inline" data-burgerid="{{this.id}}">Devour
+        It!</button>
+    </div><br>
+    {{/unless}}
     {{/each}}
-    
+
   </div>
 </div>
 
-<div class = "eatenWrapper">
+<div class="eatenWrapper">
   <div class="eatenDiv">
     <h3>Burgers you've already eaten:</h3>
     {{#each burgers}}
-      {{#if devoured}}
-        <p class="eaten">{{id}}. {{burger_name}}<button class = "delete inline" data-burgerid = "{{this.id}}" >X</button></p>
-      {{/if}}
+    {{#if devoured}}
+    <p class="eaten">{{id}}. {{burger_name}}<button class="delete inline" data-burgerid="{{this.id}}">X</button></p>
+    {{/if}}
     {{/each}}
   </div>
 </div>
@@ -31,7 +33,7 @@
 <form id="addBurger" class="button-size">
   <h3>Burger Maker:</h3>
   <textarea type="text" name="burger"></textarea>
-  <button type="submit" id = "submitButton">Submit</button>
+  <button type="submit" id="submitButton">Submit</button>
   <p>Enter a burger you want to eat and click the "Submit" Button</p>
 </form>
 
@@ -41,7 +43,7 @@
   $("#addBurger").on("submit", event => {
     event.preventDefault();
 
-   var newBurger = {
+    var newBurger = {
       burger_name: $("#addBurger [name=burger]").val().trim(),
       devoured: 0
     };
@@ -58,10 +60,10 @@
   });
 
   //Devour burger
-  $(".devourIt").on("click", function() {
-  var id = $(this).data("burgerid");
+  $(".devourIt").on("click", function () {
+    var id = $(this).data("burgerid");
 
-   var updatedBurger = {
+    var updatedBurger = {
       devoured: 1
     };
 
@@ -69,20 +71,20 @@
       type: "PUT",
       data: updatedBurger
     })
-    .then(() => {
+      .then(() => {
         location.reload();
       });
   });
 
   //delete burger
-  $(".delete").on("click", function() {
-  var id = $(this).data("burgerid");
+  $(".delete").on("click", function () {
+    var id = $(this).data("burgerid");
 
-  $.ajax(`/api/burgers/${id}`, {
+    $.ajax(`/api/burgers/${id}`, {
       type: "DELETE",
-  
+
     })
-    .then(() => {
+      .then(() => {
         location.reload();
       });
   });
