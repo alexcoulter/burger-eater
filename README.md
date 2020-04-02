@@ -33,6 +33,8 @@
 ## Usage  
 
   * Scroll down to the textbox under the label *'Burger Maker'*, type out the burger you want to eat, and press the *'Submit'* Button.  This will create your burger in the mysql database and make it pop up on the left side of your screen. If you want to eat one of your burgers, click the *'Devour It'* button beside it.  This will change  move that burger to the right side of the screen and change its *'devoured'* value in the database from false to true.  If you want to remove one of the burgers from the screen and database, click the *'X'* to the right of it.
+
+  * This full-stack application is also deployed on Heroku : https://burger-eater-alex.herokuapp.com/
   
 ## Screenshots
 * Laptop Screen
